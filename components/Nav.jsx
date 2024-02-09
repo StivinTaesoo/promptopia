@@ -13,6 +13,8 @@ const Nav = () => {
     useEffect(() => {
         const setUpProviders = async () => {
             const response = await getProviders();
+            console.log(response);
+
             setProviders(response);
         };
         setUpProviders();
@@ -81,21 +83,21 @@ const Nav = () => {
                             height={37}
                             alt="Profile"
                             className="rounded-full"
-                            onClick={() => settoggleDropdown((prev) => !prev)}
+                            onClick={() => setToggleDropdown((prev) => !prev)}
                         />
                         {toggleDropdown && (
                             <div className="dropdown">
                                 <Link
                                     href="/profile"
                                     className="dropdown_link"
-                                    onClick={() => settoggleDropdown(false)}
+                                    onClick={() => setToggleDropdown(false)}
                                 >
                                     My Profile
                                 </Link>
                                 <Link
                                     href="/create-prompt"
                                     className="dropdown_link"
-                                    onClick={() => settoggleDropdown(false)}
+                                    onClick={() => setToggleDropdown(false)}
                                 >
                                     Create Prompt
                                 </Link>
